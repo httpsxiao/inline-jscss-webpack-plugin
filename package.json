@@ -1,0 +1,81 @@
+{
+  "name": "inline-jscss-webpack-plugin",
+  "version": "1.0.0",
+  "description": "将 webpack 打包之后的静态文件内联到 html 中",
+  "main": "lib/index.js",
+  "types": "lib/index.d.js",
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "keywords": [
+    "webpack",
+    "plugin",
+    "inline",
+    "jscss",
+    "assets"
+  ],
+  "author": "httpsxiao",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/httpsxiao/inline-jscss-webpack-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/httpsxiao/inline-jscss-webpack-plugin/issues"
+  },
+  "scripts": {
+    "test": "npm run build && jest --detectOpenHandles",
+    "lint": "eslint --ext .js,.ts .",
+    "lint.fix": "eslint --ext .js,.ts  --fix .",
+    "build": "rimraf lib && tsc --version && tsc --project tsconfig.json",
+    "watch": "tsc --version && tsc --watch",
+    "precommit": "lint-staged",
+    "publish": "npm run build && npm publish"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "eslint --fix",
+        "prettier --write",
+        "git add"
+      ],
+      "*.ts": [
+        "eslint --fix",
+        "prettier --write",
+        "git add"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "webpack": "*",
+    "html-webpack-plugin": "*"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/html-minifier": "^3.5.3",
+    "@types/node": "^12.6.8",
+    "@types/webpack": "^4.32.0",
+    "@typescript-eslint/eslint-plugin": "^1.12.0",
+    "@typescript-eslint/parser": "^1.12.0",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.0.1",
+    "fs": "0.0.1-security",
+    "html-webpack-plugin": "^4.0.0-beta.8",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "path": "^0.12.7",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.5.3",
+    "webpack": "^4.36.1",
+    "webpack-merge": "^4.2.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
