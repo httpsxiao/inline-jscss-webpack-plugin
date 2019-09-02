@@ -1,6 +1,6 @@
 {
   "name": "inline-jscss-webpack-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "将 webpack 打包之后的静态文件内联到 html 中",
   "main": "lib/index.js",
   "types": "lib/index.d.js",
@@ -33,8 +33,7 @@
     "lint.fix": "eslint --ext .js,.ts  --fix .",
     "build": "rimraf lib && tsc --version && tsc --project tsconfig.json",
     "watch": "tsc --version && tsc --watch",
-    "precommit": "lint-staged",
-    "publish": "npm run build && npm publish"
+    "precommit": "lint-staged"
   },
   "lint-staged": {
     "linters": {

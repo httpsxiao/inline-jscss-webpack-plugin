@@ -10,13 +10,22 @@
 
 ```javascript
   // webpack.conf.js
+
   const HtmlWebpackPlugin = require('html-webpack-plugin')
   const InlineJscssWebpackPlugin = require('inline-jscss-webpack-plugin')
 
   const webpackConfig = {
+    entry: {
+      example: './example.js'
+    },
     plugins: [
       new HtmlWebpackPlugin(),
-      new InlineJscssWebpackPlugin()
+      new InlineJscssWebpackPlugin({
+        assets: [
+          'manifest.js', // 会打入 manifest.[hash.]js
+          'example' // 会打入 example.[hash.]js 和 example.[hash.]css
+        ]
+      })
     ]
   }
 
